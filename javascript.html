@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Variables</h2>
+
+<label for="mortgage_amount">Mortage Amount:</label><br>
+<input type="text" name="Mortgage Amount" id="mortgage_amount" /><br>
+
+<label for="interest_rate">Interest Rate:</label><br>
+<input type="text" name="Interest Rate" id="interest_rate" /><br>
+
+<label for="monthly_payment">Monthly Payment:</label><br>
+<input type="text" name="Monthly Payment" id="monthly_payment" /><br>
+
+<button onclick="calculate()">Click me</button>
+
+<p id="num_years"></p>
+<p id="total_interest"></p>
+<p id="nameValue"></p>
+
+<script>
+function calculate() {
+var principal = Number(document.getElementById("mortgage_amount").value);
+var mortgage_amount = principal
+var interest_rate = Number(document.getElementById("interest_rate").value);
+var monthly_interest = interest_rate/12
+var monthly_payment = Number(document.getElementById("monthly_payment").value);
+var total_interest = 0
+var num_months = 0
+
+while (principal > 0) {
+    num_months +=1
+    total_interest += principal * monthly_interest
+    principal = principal + principal * monthly_interest
+    principal = principal - monthly_payment
+}
+
+var num_years = num_months/12
+
+document.getElementById("num_years").innerHTML = "Number of Years= " + num_years;
+document.getElementById("total_interest").innerHTML = "Total Interest Paid = " + total_interest;
+
+document.getElementById("nameValue").innerHTML = mortgage;
+}
+</script>
+
+</body>
+</html>
