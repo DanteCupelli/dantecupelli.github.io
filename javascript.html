@@ -34,6 +34,14 @@ label{
    font-size: large;
 }
 
+p {
+  font-size: large;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
 div {
   font-family: Arial, Helvetica, sans-serif;
   margin-left: auto;
@@ -44,6 +52,7 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
+
 </style>
 </head>
 
@@ -71,8 +80,21 @@ div {
 
 
 <div>
-  <h3>info here</h3>
+  <p class="bold_text"> The purpose of this calculator is to help you determine how long it would take to pay off a mortgage and how much interest you would pay - given a specific monthly payment</p></br>
+  <p class="bold_text"> Disclaimer </p>
+  <p> *This does not factor in fluctating interest rates and term lengths. As such the calculation cannot be exact. </p>
+
 </div>
+
+<div>
+  <h2>How To Manually Calculate</h2>
+  <p class="bold_text"> Three primary variables:</p><p> Mortgage Balance, Monthly Interest Multiplier, Monthly Payment </p><br>
+  <p class="bold_text"> The Monthly Interest Multiplier is determined:</p><p>(Interest Rate / 100) / 12 = Monthly Interest Multiplier</p><br>
+  <p class="bold_text"> At the beginning of the month interest is added to the mortgage balance using the interest multiplier:</p><p> Mortgage Balance * Monthly Interest Multiplier = Mortgage Balance </p><br>
+  <p class="bold_text"> At the end of the month the mortgage balance is reduced by the monthly payment: </p><p>Mortgage Balance - Monthly Payment = Mortgage Balance </p><br>
+  <p class="bold_text"> This process repeats monthly until the mortgage balance is zero. </p>
+</div>
+
 <script>
 function calculate() {
 var principal = Number(document.getElementById("mortgage_amount").value);
@@ -92,8 +114,8 @@ while (balance > 0) {
 
 var num_years = num_months/12
 
-document.getElementById("num_years").innerHTML = "Number of Years= " + num_years;
-document.getElementById("total_interest").innerHTML = "Total Interest Paid = " + total_interest;
+document.getElementById("num_years").innerHTML = "Years to pay off mortgage = " + num_years;
+document.getElementById("total_interest").innerHTML = "Interest paid over " + num_years + " years = $"+ total_interest;
 
 document.getElementById("nameValue").innerHTML = mortgage;
 }
