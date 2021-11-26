@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-
 <style>
 input[type=text], select {
 
@@ -12,7 +10,6 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 
 input[type=submit] {
 
@@ -33,26 +30,25 @@ input[type=submit]:hover {
 div {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25px;
   width: 75%;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 }
-
-
-
 </style>
 
 
 
 <html>
 
-<div class="main">
 <body>
-
+<div>
 <h2>JavaScript Variables</h2>
+</div>
 
-<label for="mortgage_amount">Mortage Amount $:</label><br>
+<div>
+<label for="mortgage_amount">Mortage Amount $:</label>
 <input type="text" name="Mortgage Amount" id="mortgage_amount" /><br>
 
 <label for="interest_rate">Interest Rate %:</label><br>
@@ -66,7 +62,12 @@ div {
 <p id="num_years"></p>
 <p id="total_interest"></p>
 <p id="nameValue"></p>
+</div>
 
+
+<div>
+  <h3>info here</h3>
+</div>
 <script>
 function calculate() {
 var principal = Number(document.getElementById("mortgage_amount").value);
@@ -94,5 +95,5 @@ document.getElementById("nameValue").innerHTML = mortgage;
 </script>
 
 </body>
-</div>
+
 </html>
