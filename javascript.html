@@ -33,17 +33,26 @@ input[type=submit]:hover {
 div {
   margin-left: auto;
   margin-right: auto;
-  width: 25%;
+  width: 75%;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+}
+
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
 }
 </style>
 
 
 
 <html>
-<div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="main">
 <body>
 
 <h2>JavaScript Variables</h2>
