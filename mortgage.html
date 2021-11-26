@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<style>
+input[type=text], select {
+  font-size: large;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+label{
+   font-size: large;
+}
+
+p {
+  font-size: large;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+div {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  width: 75%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+</style>
+</head>
+
+<body>
+<div class = "main">
+<h2>Mortgage Calculator</h2>
+</div>
+
+<div>
+<label for="mortgage_amount">Mortage Amount $:</label>
+<input type="text" name="Mortgage Amount" id="mortgage_amount" /><br>
+
+<label for="interest_rate">Interest Rate %:</label><br>
+<input type="text" name="Interest Rate" id="interest_rate" /><br>
+
+<label for="monthly_payment">Monthly Payment $:</label><br>
+<input type="text" name="Monthly Payment" id="monthly_payment" /><br>
+
+<input type="submit" onclick="calculate()"></input>
+
+<p id="num_years"></p>
+<p id="total_interest"></p>
+<p id="nameValue"></p>
+</div>
+
+
+<div>
+  <p class="bold_text"> The purpose of this calculator is to help you determine how long it would take to pay off a mortgage and how much interest you would pay - given a specific monthly payment</p></br>
+  <p class="bold_text"> Disclaimer </p>
+  <p> *This does not factor in fluctating interest rates and term lengths. As such the calculation cannot be exact. </p>
+
+</div>
+
+<div>
+  <h2>How To Manually Calculate</h2>
+  <p class="bold_text"> Three primary variables:</p><p> Mortgage Balance, Monthly Interest Multiplier, Monthly Payment </p><br>
+  <p class="bold_text"> The Monthly Interest Multiplier is determined:</p><p>(Interest Rate / 100) / 12 = Monthly Interest Multiplier</p><br>
+  <p class="bold_text"> At the beginning of the month interest is added to the mortgage balance using the interest multiplier:</p><p> Mortgage Balance * Monthly Interest Multiplier = Mortgage Balance </p><br>
+  <p class="bold_text"> At the end of the month the mortgage balance is reduced by the monthly payment: </p><p>Mortgage Balance - Monthly Payment = Mortgage Balance </p><br>
+  <p class="bold_text"> This process repeats monthly until the mortgage balance is zero. </p>
+</div>
+
+<script>
+function calculate() {
+var principal = Number(document.getElementById("mortgage_amount").value);
+var balance = principal
+var interest_rate = (Number(document.getElementById("interest_rate").value)) / 100;
+var monthly_interest = interest_rate/12
+var monthly_payment = Number(document.getElementById("monthly_payment").value);
+var total_interest = 0
+var num_months = 0
+
+while (balance > 0) {
+    num_months +=1
+    total_interest += balance * monthly_interest
+    balance = balance + (balance * monthly_interest)
+    balance = balance - monthly_payment
+}
+
+var num_years = num_months/12
+
+document.getElementById("num_years").innerHTML = "Years to pay off mortgage = " + num_years;
+document.getElementById("total_interest").innerHTML = "Interest paid over " + num_years + " years = $"+ total_interest;
+
+document.getElementById("nameValue").innerHTML = mortgage;
+}
+</script>
+
+</body>
+
+</html>
